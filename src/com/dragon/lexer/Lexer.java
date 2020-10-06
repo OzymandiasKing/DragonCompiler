@@ -3,6 +3,8 @@ package com.dragon.lexer;
 import java.io.IOException;
 import java.util.Hashtable;
 
+import com.dragon.symbols.Type;
+
 
 
 public class Lexer {

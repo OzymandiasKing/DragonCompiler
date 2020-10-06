@@ -1,7 +1,7 @@
 package com.dragon.inter;
 
-import com.dragon.lexer.Type;
 import com.dragon.lexer.Word;
+import com.dragon.symbols.Type;
 
 public class Id extends Expr {
 	public int offset;

@@ -1,7 +1,7 @@
 package com.dragon.inter;
 
 import com.dragon.lexer.Token;
-import com.dragon.lexer.Type;
+import com.dragon.symbols.Type;
 
 public class Expr extends Node{
 	public Token opToken;
