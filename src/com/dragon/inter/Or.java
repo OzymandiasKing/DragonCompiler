@@ -3,8 +3,8 @@ package com.dragon.inter;
 import com.dragon.lexer.Token;
 
 
-public class OR extends Logical{
-    public OR(Token token, Expr expr1, Expr expr2) {
+public class Or extends Logical{
+    public Or(Token token, Expr expr1, Expr expr2) {
         super(token, expr1, expr2);
     }
 

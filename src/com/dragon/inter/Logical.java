@@ -21,7 +21,7 @@ public class Logical extends Expr{
         super(token, null);
         this.expr1 = expr1;
         this.expr2 = expr2;
-        type = check(expr1.type, expr2.type);
+        type = check(this.expr1.type, this.expr2.type);
         if (type == null) {
             error("type error!!!");
         }
