@@ -30,6 +30,20 @@ public class Rel extends Logical{
         }
     }
 
+    /**
+     * Method jumping(t, f) begins from generating code for subexpressions
+     * expr1 and expr2(in Rel.java lines11-12), it then calls method
+     * emitJumps(test, t, f)(in Expr.java line26). If neither t nor f is
+     * the special label 0, then emitJumps execute the following
+     *          emit("if " + test + " goto L" + t);
+     * 			emit("goto L" + f);
+     * At most one instruction is generated if either t or f is the special label 0:
+     *          emit("if " + test + "goto L" + t);
+     *          emit("iffalse " + test  + "goto L" + f);
+     *          else;//nothing both t and f fall through
+     * @param t labels t
+     * @param f labels f
+     */
     @Override
     public void jumping(int t, int f) {
         Expr a = expr1.reduce();
