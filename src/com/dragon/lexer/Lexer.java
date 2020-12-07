@@ -42,12 +42,24 @@ public class Lexer {
 		peek = ' ';
 		return true;
 	}
-	
+
+	/**
+	 * This is the environment in the UNIX, but we are in the Windows10, so we must change
+	 *			peek == ' ' || peek == '\t'
+	 *			and
+	 *			peek == '\n'
+	 *			to
+	 *			peek == ' ' || peek == '\t' || peek == '\n'
+	 *			and
+	 *			peek == '\r'
+	 * @return
+	 * @throws IOException
+	 */
 	public Token scan() throws IOException {
 		for (; ; readch() ) {
-			if (peek == ' ' || peek == '\t') {
+			if (peek == ' ' || peek == '\t' || peek == '\n') {
 				continue;
-			} else if (peek == '\n') {
+			} else if (peek == '\r') {
 				line += 1;
 			} else {
 				break;
