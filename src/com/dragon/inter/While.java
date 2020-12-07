@@ -5,7 +5,11 @@ import com.dragon.symbols.Type;
 public class While extends Stmt{
     Expr expr;
     Stmt stmt;
-    public While(Expr expr, Stmt stmt) {
+    public While() {
+        expr = null;
+        stmt = null;
+    }
+    public void init(Expr expr, Stmt stmt) {
         this.expr = expr;
         this.stmt = stmt;
         if (this.expr.type != Type.Bool) {

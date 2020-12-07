@@ -5,7 +5,11 @@ import com.dragon.symbols.Type;
 public class Do extends Stmt{
     Expr expr;
     Stmt stmt;
-    public Do(Expr expr, Stmt stmt){
+    public Do() {
+        expr = null;
+        stmt = null;
+    }
+    public void init(Stmt stmt, Expr expr){
         this.expr = expr;
         this.stmt = stmt;
         if (this.expr.type != Type.Bool) {
