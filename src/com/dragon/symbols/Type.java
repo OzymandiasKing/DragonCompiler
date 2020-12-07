@@ -1,7 +1,7 @@
-package com.dragon.symbols;
+package symbols;
 
-import com.dragon.lexer.Tag;
-import com.dragon.lexer.Word;
+import lexer.Tag;
+import lexer.Word;
 
 public class Type extends Word{
 	public int width = 0;

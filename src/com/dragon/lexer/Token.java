@@ -1,4 +1,4 @@
-package com.dragon.lexer;
+package lexer;
 
 public class Token {
 	public final int tag;

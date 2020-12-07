@@ -1,10 +1,10 @@
-package com.dragon.parser;
+package parser;
 
-import com.dragon.inter.*;
-import com.dragon.lexer.*;
-import com.dragon.symbols.Array;
-import com.dragon.symbols.Env;
-import com.dragon.symbols.Type;
+import inter.*;
+import lexer.*;
+import symbols.Array;
+import symbols.Env;
+import symbols.Type;
 
 import java.io.IOException;
 
@@ -26,7 +26,7 @@ public class Parser {
         throw new Error("near line " + lexer.line + ": " + s);
     }
 
-    void math(int t) throws IOException {
+    void match(int t) throws IOException {
         if (look.tag == t) {
             move();
         } else {
@@ -44,12 +44,12 @@ public class Parser {
     }
 
     Stmt block() throws IOException {
-        math('{');
+        match('{');
         Env saveEnv = top;
         top = new Env(top);
         declarations();
         Stmt stmtS = stmtS();
-        math('}');
+        match('}');
         top = saveEnv;
         return stmtS;
     }
@@ -58,8 +58,8 @@ public class Parser {
         while (look.tag == Tag.BASIC) {
             Type type = type();
             Token token = look;
-            math(Tag.ID);
-            math(';');
+            match(Tag.ID);
+            match(';');
             Id id = new Id((Word) token, type , used);
             top.put(token, id);
             used = used + type.width;
@@ -68,7 +68,7 @@ public class Parser {
 
     Type type() throws IOException {
         Type type = (Type) look;
-        math(Tag.BASIC);
+        match(Tag.BASIC);
         if (look.tag != '[') {
             return type;
         } else {
@@ -77,10 +77,10 @@ public class Parser {
     }
 
     Type dims(Type type) throws IOException {
-        math('[');
+        match('[');
         Token token = look;
-        math(Tag.NUM);
-        math(']');
+        match(Tag.NUM);
+        match(']');
         if (look.tag == '[') {
             type = dims(type);
         }
@@ -102,19 +102,19 @@ public class Parser {
         switch (look.tag) {
             case ';': move(); return Stmt.Null;
             case Tag.IF:
-                math(Tag.IF); math('('); expr = bool(); math(')');
+                match(Tag.IF); match('('); expr = bool(); match(')');
                 stmt1 = stmt();
                 if (look.tag != Tag.ELSE) {
                     return new If(expr, stmt1);
                 }
-                math(Tag.ELSE);
+                match(Tag.ELSE);
                 stmt2 = stmt();
                 return new Else(expr, stmt1, stmt2);
             case Tag.WHILE:
                 While whileNode = new While();
                 savedStmt = Stmt.Enclosing;
                 Stmt.Enclosing = whileNode;
-                math(Tag.WHILE); math('('); expr = bool(); math(')');
+                match(Tag.WHILE); match('('); expr = bool(); match(')');
                 stmt1 = stmt();
                 whileNode.init(expr, stmt1);
                 Stmt.Enclosing = savedStmt;
@@ -123,14 +123,15 @@ public class Parser {
                 Do DoNode = new Do();
                 savedStmt = Stmt.Enclosing;
                 Stmt.Enclosing = DoNode;
-                math(Tag.DO);
+                match(Tag.DO);
                 stmt1 = stmt();
-                math(Tag.WHILE);math('('); expr = bool(); math(')'); math(';');
+                match(Tag.WHILE);
+                match('('); expr = bool(); match(')'); match(';');
                 DoNode.init(stmt1, expr);
                 Stmt.Enclosing = savedStmt;
                 return DoNode;
             case Tag.BREAK:
-                math(Tag.BREAK); math(';');
+                match(Tag.BREAK); match(';');
                 return new Break();
             case '{':
                 return block();
@@ -142,7 +143,7 @@ public class Parser {
     Stmt assign() throws IOException {
         Stmt stmt;
         Token token = look;
-        math(Tag.ID);
+        match(Tag.ID);
         Id id = top.get(token);
         if (id == null) {
             error(token.toString() + " undeclared");
@@ -152,10 +153,10 @@ public class Parser {
             stmt = new Set(id, bool());
         } else {
             Access x = offset(id);
-            math('=');
+            match('=');
             stmt = new SetElem(x, bool());
         }
-        math(';');
+        match(';');
         return stmt;
     }
 
@@ -231,7 +232,7 @@ public class Parser {
         Expr x = null;
         switch (look.tag) {
             case '(':
-                move(); x = bool(); math(')');
+                move(); x = bool(); match(')');
                 return x;
             case Tag.NUM:
                 x = new Constant(look, Type.Int);
@@ -273,13 +274,13 @@ public class Parser {
         Expr t1, t2;
         Expr loc;
         Type type = a.type;
-        math('['); i = bool(); math(']');
+        match('['); i = bool(); match(']');
         type = ((Array)type).of;
         w = new Constant(type.width);
         t1 = new Arith(new Token('*'), i, w);
         loc = t1;
         while (look.tag == '[') {
-            math('['); i = bool(); math(']');
+            match('['); i = bool(); match(']');
             type = ((Array)type).of;
             w = new Constant(type.width);
             t1 = new Arith(new Token('*'), i, w);

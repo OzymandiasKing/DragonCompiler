@@ -1,6 +1,6 @@
-package com.dragon.inter;
+package inter;
 
-import com.dragon.symbols.Type;
+import symbols.Type;
 
 public class Set extends Stmt{
     public Id id;

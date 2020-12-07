@@ -1,7 +1,7 @@
-package com.dragon.inter;
+package inter;
 
-import com.dragon.symbols.Array;
-import com.dragon.symbols.Type;
+import symbols.Array;
+import symbols.Type;
 
 public class SetElem extends Stmt{
     public Id array;

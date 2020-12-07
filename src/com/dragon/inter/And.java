@@ -1,6 +1,6 @@
-package com.dragon.inter;
+package inter;
 
-import com.dragon.lexer.Token;
+import lexer.Token;
 
 public class And extends Logical{
     public And(Token token, Expr expr1, Expr expr2) {

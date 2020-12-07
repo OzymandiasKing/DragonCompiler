@@ -1,8 +1,8 @@
-package com.dragon.inter;
+package inter;
 
-import com.dragon.lexer.Token;
-import com.dragon.symbols.Array;
-import com.dragon.symbols.Type;
+import lexer.Token;
+import symbols.Array;
+import symbols.Type;
 
 /**
  * Class Rel implements operators <, <=, ==, !=, >, >=.

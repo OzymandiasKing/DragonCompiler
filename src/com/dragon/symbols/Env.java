@@ -1,9 +1,9 @@
-package com.dragon.symbols;
+package symbols;
 
 import java.util.Hashtable;
 
-import com.dragon.inter.Id;
-import com.dragon.lexer.Token;
+import inter.Id;
+import lexer.Token;
 
 public class Env {
 	private Hashtable<Object, Object> tHashtable;

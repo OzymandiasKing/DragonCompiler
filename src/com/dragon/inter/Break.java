@@ -1,4 +1,4 @@
-package com.dragon.inter;
+package inter;
 
 public class Break extends Stmt{
     Stmt stmt;

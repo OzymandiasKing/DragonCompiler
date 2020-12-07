@@ -1,9 +1,9 @@
-package com.dragon.inter;
+package inter;
 
-import com.dragon.lexer.Num;
-import com.dragon.lexer.Token;
-import com.dragon.lexer.Word;
-import com.dragon.symbols.Type;
+import lexer.Num;
+import lexer.Token;
+import lexer.Word;
+import symbols.Type;
 
 public class Constant extends Expr{
     /**

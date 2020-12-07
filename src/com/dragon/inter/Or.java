@@ -1,6 +1,6 @@
-package com.dragon.inter;
+package inter;
 
-import com.dragon.lexer.Token;
+import lexer.Token;
 
 
 public class Or extends Logical{

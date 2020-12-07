@@ -1,6 +1,6 @@
-package com.dragon.inter;
+package inter;
 
-import com.dragon.lexer.Lexer;
+import lexer.Lexer;
 
 public class Node {
 	int lexLine = 0;

@@ -1,4 +1,4 @@
-package com.dragon.lexer;
+package lexer;
 
 public class Tag {
 	public final static int 

@@ -1,4 +1,4 @@
-package com.dragon.lexer;
+package lexer;
 
 public class Num extends Token{
 	public final int value;

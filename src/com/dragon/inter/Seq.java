@@ -1,4 +1,4 @@
-package com.dragon.inter;
+package inter;
 
 public class Seq extends Stmt{
     public Stmt stmt1, stmt2;

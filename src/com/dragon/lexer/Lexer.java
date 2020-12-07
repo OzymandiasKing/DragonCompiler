@@ -1,9 +1,9 @@
-package com.dragon.lexer;
+package lexer;
 
 import java.io.IOException;
 import java.util.Hashtable;
 
-import com.dragon.symbols.Type;
+import symbols.Type;
 
 
 

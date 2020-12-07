@@ -1,8 +1,8 @@
-package com.dragon.inter;
+package inter;
 
-import com.dragon.lexer.Tag;
-import com.dragon.lexer.Word;
-import com.dragon.symbols.Type;
+import lexer.Tag;
+import lexer.Word;
+import symbols.Type;
 
 /**
  * The source language allows boolean values to be assigned to identifiers

@@ -1,6 +1,6 @@
-package com.dragon.symbols;
+package symbols;
 
-import com.dragon.lexer.Tag;
+import lexer.Tag;
 
 public class Array extends Type{
 	public Type of;

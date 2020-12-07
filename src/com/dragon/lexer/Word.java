@@ -1,4 +1,4 @@
-package com.dragon.lexer;
+package lexer;
 
 /**
  * Class Word manages lexemes for reserved 

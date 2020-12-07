@@ -1,6 +1,6 @@
-package com.dragon.inter;
+package inter;
 
-import com.dragon.lexer.Token;
+import lexer.Token;
 
 public class Not extends Logical{
     public Not(Token token, Expr expr2) {

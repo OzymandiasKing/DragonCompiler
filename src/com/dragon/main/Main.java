@@ -1,7 +1,7 @@
-package com.dragon.main;
+package main;
 
-import com.dragon.lexer.Lexer;
-import com.dragon.parser.Parser;
+import lexer.Lexer;
+import parser.Parser;
 
 import java.io.IOException;
 
