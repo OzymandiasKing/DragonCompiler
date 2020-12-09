@@ -1,5 +1,11 @@
 {
-        int x; int y; int a; int b;
+        int x;
+        int y;
+        int a;
+        int b;
+        int c;
+        int d;
+        int e;
 
 	if( true ) a = 0;
 
@@ -30,4 +36,8 @@
         if( x > 200 && x != b || x < 100 ) x = 0;
 
         if( a < 100 || a > 200 && a != b ) a = 0;
+
+        if(c < 10 || d > 20 && e < 70) e = 10;
+
+
 }
